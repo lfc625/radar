@@ -1,0 +1,146 @@
+<html>  
+<head>  
+	<meta charset="utf-8">  
+	<title>小雷达</title> 
+	<style type="text/css">
+		#wrapper {
+			width: 320px;
+			height: 320px;
+			position: relative;
+			margin: 0 auto
+		}
+	
+		#circle {
+			width: 320px;
+			height: 320px;
+			-moz-border-radius: 160px;
+			-webkit-border-radius: 160px;
+			border-radius: 160px;
+			background: url(images/saomiaobg.png) no-repeat center center;
+			box-shadow: 0 5px 20px rgba(51, 51, 51, 0.1);
+		}
+	
+		#saomiao {
+			width: 320px;
+			height: 320px;
+			-moz-border-radius: 160px;
+			-webkit-border-radius: 160px;
+			border-radius: 160px;
+			background: url(images/saomiao.png) no-repeat center center;
+			z-index: 100;
+		}
+	
+		.dot {
+			position: absolute;
+			top: 220px;
+			left: 275px;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			opacity: 1;
+			background: green;
+			z-index: 1000;
+		}
+	
+		.dot1 {
+			position: absolute;
+			top: 185px;
+			left: 215px;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			opacity: 1;
+			background: red;
+			z-index: 1000;
+		}
+	
+		.rot {
+			-webkit-animation: circle 5s infinite linear;
+			/*匀速 循环*/
+		}
+	
+		@-webkit-keyframes circle {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+	
+		#serviceImg {
+			position: relative;
+			left: 50%;
+			margin-left: -60px;
+			padding-top: 10px;
+		}
+	
+		#serviceMod .manageCon {
+			padding-top: 20px;
+			padding-left: 4px;
+		}
+	
+		#serviceMod .serviceList {
+			border: 1px solid #e4e4e4;
+		}
+	
+		#serviceMod .last-row {
+			border-bottom: none;
+		}
+	
+		.emphasizeBorder {
+			border-color: #1d89e4;
+			box-shadow: 0 0 30px rgba(29, 137, 228, 0.8);
+			margin-top: -5px;
+		}
+	
+		#showMod {
+			width: 100%;
+			height: 310px;
+			overflow: hidden;
+		}
+	
+		#shadowDiv {
+			background: url(images/shadow.png) repeat-x;
+			width: 536px;
+			height: 55px;
+			z-index: 1000;
+			top: 82px;
+			position: absolute;
+		}
+	</style>
+</head> 
+<body>   
+	<div id="wrapper">
+		<div id="circle">
+			<div id="saomiao" class="rot"></div>
+		</div>
+		<div id="dotWrapper">
+			<div class="dot">
+				<span>111</span>
+			</div>
+			<div class="dot1">
+				<span>222</span>
+			</div>
+		</div>
+	</div>
+</body>  
+<script type="text/javascript">
+	var r = 150;
+	var a = 145;
+	var x = a + Math.cos(30 * Math.PI / 180) * r;
+
+	console.log(a + Math.tan(30 * Math.PI / 180) * 70)
+	var wrapper = document.getElementById('dotWrapper')
+	createDiv()
+	function createDiv() {
+		var total = Math.ceil(Math.random() * 20);
+		var div = '<div class="dot"><span>'+total+'</span></div>';
+		var totalDiv = ''
+		for (var i=0;i<total;i++) {
+			totalDiv = div++
+		}
+		wrapper.appendChild(totalDiv)
+	}
+</script>
+</html>  
